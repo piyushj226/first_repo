@@ -1,4 +1,4 @@
 echo "heelooo"
 date
 cal
-hello new line!!
+echo "hello new line!!"
