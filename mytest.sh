@@ -1,6 +1,6 @@
 echo "heelooo"
 date
-cal
+ls
 echo "hello new line!!"
 echo "poll scm"
 ls
