@@ -1,4 +1,4 @@
-FROM nginx:latest
-RUN echo "from jenkins docker hub" > /usr/share/nginx/html/index.html
+FROM centos:latest
+RUN echo "from jenkins docker hub" > /var/www/html/index.html
 EXPOSE 80
 
