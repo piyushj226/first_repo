@@ -1,4 +1,4 @@
-FROM centos:latest
-RUN echo "from jenkins docker hub" > /var/www/html/index.html
+FROM nginx:latest
+RUN echo "from jenkins docker hub" > /usr/share/nginx/html/index.html
 EXPOSE 80
-CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+
