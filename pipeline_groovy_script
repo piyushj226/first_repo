@@ -1,0 +1,45 @@
+pipeline {
+    
+    agent any
+    environment {
+        DOCKER_CREDENTIALS_ID = '75c60a2d-190d-4cf2-a2c2-5e2a6d7b26b6' 
+    }
+
+    stages {
+        stage('git clone') {
+            steps { 
+                git branch: 'main', url: 'https://github.com/GAURAVJAIN2498/github_jenkins.git'
+                
+            }
+        }
+
+        stage('build ') {
+            steps {
+                script {
+                    sh " docker build -t gauravj00/jenkins_test:latest . "
+                }
+            }
+        }
+
+        stage('login Dockerhub') {
+            steps {
+                        sh "echo dockerhub15 | docker login  -u gauravj00 --password-stdin"  
+                    }
+        }
+
+        stage('push image') {
+            steps {
+                    sh "docker push gauravj00/jenkins_test:latest"
+                }
+        }
+
+        stage('Deploy') {
+            steps {
+                    sh "docker run -d --name jenkinstestos -p 80:80 gauravj00/jenkins_test:latest"
+                }
+        
+        }
+    }
+     
+ }
+
